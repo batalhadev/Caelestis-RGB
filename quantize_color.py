@@ -39,9 +39,6 @@ PALETTE = [
     {"grupo": "Neutra", "cor": "Preto", "versao": "Claro", "hex": "#333333", "rgb": (51, 51, 51)},
     {"grupo": "Neutra", "cor": "Preto", "versao": "Base", "hex": "#000000", "rgb": (0, 0, 0)},
     {"grupo": "Neutra", "cor": "Preto", "versao": "Escuro", "hex": "#0D0D0D", "rgb": (13, 13, 13)},
-    {"grupo": "Neutra", "cor": "Cinza", "versao": "Claro", "hex": "#D3D3D3", "rgb": (211, 211, 211)},
-    {"grupo": "Neutra", "cor": "Cinza", "versao": "Base", "hex": "#808080", "rgb": (128, 128, 128)},
-    {"grupo": "Neutra", "cor": "Cinza", "versao": "Escuro", "hex": "#404040", "rgb": (64, 64, 64)}
 ]
 
 
