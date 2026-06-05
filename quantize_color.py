@@ -32,6 +32,13 @@ PALETTE = [
     {"grupo": "Secundaria", "cor": "Roxo", "versao": "Claro", "hex": "#CC99FF", "rgb": (204, 153, 255)},
     {"grupo": "Secundaria", "cor": "Roxo", "versao": "Base", "hex": "#800080", "rgb": (128, 0, 128)},
     {"grupo": "Secundaria", "cor": "Roxo", "versao": "Escuro", "hex": "#4B0082", "rgb": (75, 0, 130)},
+    {"grupo": "Secundaria", "cor": "Ciano", "versao": "Claro", "hex": "#E0FFFF", "rgb": (224, 255, 255)},
+    {"grupo": "Secundaria", "cor": "Ciano", "versao": "Base", "hex": "#00FFFF", "rgb": (0, 255, 255)},
+    {"grupo": "Secundaria", "cor": "Ciano", "versao": "Escuro", "hex": "#008B8B", "rgb": (0, 139, 139)},
+    
+    {"grupo": "Terciaria", "cor": "Violeta", "versao": "Claro", "hex": "#DDA0DD", "rgb": (221, 160, 221)},
+    {"grupo": "Terciaria", "cor": "Violeta", "versao": "Base", "hex": "#8A2BE2", "rgb": (138, 43, 226)},
+    {"grupo": "Terciaria", "cor": "Violeta", "versao": "Escuro", "hex": "#5C00A3", "rgb": (92, 0, 163)},
     
     {"grupo": "Neutra", "cor": "Branco", "versao": "Claro", "hex": "#FFFFFF", "rgb": (255, 255, 255)},
     {"grupo": "Neutra", "cor": "Branco", "versao": "Base", "hex": "#F5F5F5", "rgb": (245, 245, 245)},
@@ -198,10 +205,60 @@ def ensure_palette_cache(palette: list[dict]) -> list[dict]:
 # Quantização
 # --------------------------------------------------
 
+def quantize(hex_input: str, palette: list[dict] = PALETTE_CACHE) -> dict:
+    palette = ensure_palette_cache(palette)
+
+    rgb_in = hex_to_rgb(hex_input)
+    input_hex = rgb_to_hex(*rgb_in)
+
+    if input_hex == "#777777":
+        return {
+            "input_hex": input_hex,
+            "input_rgb": rgb_in,
+            "result_name": "OFF",
+            "result_hex": "#303030",
+            "result_rgb": (48, 48, 48),
+            "distance": 0,
+        }
+
+    lab_in = rgb_to_lab_color(rgb_in)
+
+    best_entry = None
+    best_distance = float("inf")
+
+    for entry in palette:
+        dist = color_distance(lab_in, entry["lab"])
+
+        if dist < best_distance:
+            best_distance = dist
+            best_entry = entry
+
+    return {
+        "input_hex": input_hex,
+        "input_rgb": rgb_in,
+        "result_name": best_entry["cor_key"],
+        "result_hex": best_entry["hex"],
+        "result_rgb": best_entry["rgb"],
+        "distance": round(best_distance, 2),
+    }
+
+
 def quantize1(hex_input: str, palette: list[dict] = PALETTE_CACHE) -> dict:
     palette = ensure_palette_cache(palette)
 
     rgb_in = hex_to_rgb(hex_input)
+    input_hex = rgb_to_hex(*rgb_in)
+
+    if input_hex == "#777777":
+        return {
+            "input_hex": input_hex,
+            "input_rgb": rgb_in,
+            "result_name": "cinza",
+            "result_hex": "#808080",
+            "result_rgb": (128, 128, 128),
+            "distance": 0,
+        }
+
     lab_in = rgb_to_lab_color(rgb_in)
 
     best_entry = None
@@ -221,7 +278,7 @@ def quantize1(hex_input: str, palette: list[dict] = PALETTE_CACHE) -> dict:
     )
 
     return {
-        "input_hex": rgb_to_hex(*rgb_in),
+        "input_hex": input_hex,
         "input_rgb": rgb_in,
         "result_name": base_entry["cor_key"],
         "result_hex": base_entry["hex"],
