@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
 DIR="$HOME/.local/state/caelestia"
-HOOK="$HOME/.config/caelestia/hooks/openrgbMYou/openrgbMYOU.sh"
+SCRIPT_DIR="cd "$(dirname "$0")" && pwd"
+SCRIPT="$SCRIPT_DIR/openrgbMYOU.sh"
 
-# Execute 1 time at startup
-"$HOOK"
+# Execute once at startup
+"$SCRIPT"
 
 inotifywait -m -q \
     -e close_write \
@@ -12,5 +13,5 @@ inotifywait -m -q \
     "$DIR" |
 while read -r path event file; do
     [[ "$file" == "scheme.json" ]] || continue
-    "$HOOK"
+    "$SCRIPT"
 done
