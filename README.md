@@ -23,7 +23,7 @@ Caelestis RGB connects with Caelestia theme file, reads it, and sets all OpenRGB
 2. Ensure the hook and the script are executable:
 
     ``` sh
-    chmod +x ~*/desired/directory/*openrgbMYOU ~*/desired/directory/*caelestia-openrgb-daemon
+    chmod +x ~*/desired/directory/*openrgbMYOU ~*/desired/directory/*caelestia-openrgb-daemon.sh
     ```
 
 3. Configure your hypr-conf.lua to load the hook on startup with:
