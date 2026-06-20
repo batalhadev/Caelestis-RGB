@@ -38,7 +38,7 @@ Caelestis RGB connects with Caelestia theme file, reads it, and sets all OpenRGB
 
 ## Usage
 
-You don't need to have openRGB opened for the script to run sucessfully, the script uses the openRGB cli. If you want to tinker with the quantize_color.py, or just test things out, use the -d option when running openrgbMYOU script to skip the lengthy OpenRGB setup.
+You don't need to have openRGB running for the script to run sucessfully, the script uses the openRGB cli. If you want to tinker with the quantize_color.py, or just test things out, use the -d option when running openrgbMYOU script to skip the lengthy OpenRGB setup.
 
 ## License
 
