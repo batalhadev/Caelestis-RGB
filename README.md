@@ -23,7 +23,7 @@ Caelestis RGB connects with Caelestia theme file, reads it, and sets all OpenRGB
 2. Ensure the hook and the script are executable:
 
     ``` sh
-    chmod +x ~*/desired/directory/*openrgbMYOU ~*/desired/directory/*caelestia-openrgb-daemon.sh
+    chmod +x ~*/desired/directory/*caelestisRGB.sh ~*/desired/directory/*caelestia-openrgb-daemon.sh
     ```
 
 3. Configure your hypr-conf.lua to load the hook on startup with:
@@ -38,7 +38,7 @@ Caelestis RGB connects with Caelestia theme file, reads it, and sets all OpenRGB
 
 ## Usage
 
-You don't need to have openRGB running for the script to run sucessfully, the script uses the openRGB cli. If you want to tinker with the quantize_color.py, or just test things out, use the -d option when running openrgbMYOU script to skip the lengthy OpenRGB setup.
+You don't need to have openRGB running for the script to run sucessfully, the script uses the openRGB cli. If you want to tinker with the quantize_color.py, or just test things out, use the -d option when running caelestisRGB script to skip the lengthy OpenRGB setup.
 
 ## License
 

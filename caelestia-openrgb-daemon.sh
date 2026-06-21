@@ -2,9 +2,9 @@
 
 DIR="$HOME/.local/state/caelestia"
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
-SCRIPT="$SCRIPT_DIR/openrgbMYOU.sh"
+SCRIPT="$SCRIPT_DIR/caelestisRGB.sh"
 
-# Execute once at startup
+#Execute once at startup
 "$SCRIPT"
 
 inotifywait -m -q \
