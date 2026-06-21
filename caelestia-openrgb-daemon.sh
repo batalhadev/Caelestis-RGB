@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DIR="$HOME/.local/state/caelestia"
-SCRIPT_DIR="cd "$(dirname "$0")" && pwd"
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 SCRIPT="$SCRIPT_DIR/openrgbMYOU.sh"
 
 # Execute once at startup

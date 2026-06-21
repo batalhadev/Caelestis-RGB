@@ -49,6 +49,7 @@ QUANTIZED="${QUANTIZED#\#}"
 if [[ "$DEBUG" == true ]]; then
     printf "Debug: comando openrgb ignorado.\n"
 else
+    killall -q -9 openrgb
     openrgb --mode static --color "$QUANTIZED" -v -sp caelestia
 fi
 
