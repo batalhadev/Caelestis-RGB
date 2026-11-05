@@ -1,10 +1,14 @@
+# Notice
+
+I strongly discourage you from using this hook, as it is deprecated and I will not provide any further updates. For similar results, I recommend using [caelestia-rgb-sync](https://github.com/FoxlikeCreature/caelestia-rgb-sync) by FoxLikeCreature.
+
 # Caelestis RGB
 
 A small Caelestia hook that integrates with OpenRGB to control RGB lighting, based on your theme, while running Caelestia.
 
 ## Overview
 
-Caelestis RGB connects with Caelestia theme file, reads it, and sets all OpenRGB compatible lighting devices accordingly to your theme, after making sure it's the most optimized color for an RGB led device, quantizing it with CIEDE2000.
+Caelestis RGB connects to your Caelestia theme file, reads it, and sets all OpenRGB-compatible lighting devices accordingly, ensuring the most optimized color for each RGB LED device by quantizing it with CIEDE2000.
 
 ## Requirements
 
